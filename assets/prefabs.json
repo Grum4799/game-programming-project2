@@ -1,0 +1,78 @@
+{
+  "Player": {
+    "tag": "player",
+    "components": [
+      { "type": "Body", "w": 36, "h": 44, "gravity": true, "collides": true },
+      { "type": "Sprite", "texture": "robot", "flip": true },
+      { "type": "Controller", "speed": 260, "jump": 700 },
+      { "type": "Health", "lives": 3, "invulnerable": 1.5 }
+    ]
+  },
+  "Drone": {
+    "tag": "enemy",
+    "components": [
+      { "type": "Body", "w": 44, "h": 32 },
+      { "type": "Sprite", "texture": "drone", "flip": true },
+      { "type": "PatrolChase", "left": 0, "right": 100, "speed": 80, "chaseSpeed": 140, "range": 240 },
+      { "type": "Shooter", "projectile": "EnergyBall", "cooldown": 1.6, "range": 340, "speed": 260 },
+      { "type": "Hazard" }
+    ]
+  },
+  "EnergyBall": {
+    "tag": "projectile",
+    "components": [
+      { "type": "Body", "w": 14, "h": 14, "collides": true },
+      { "type": "Sprite", "texture": "energy_ball" },
+      { "type": "Projectile", "lifetime": 3 },
+      { "type": "Hazard", "destroyOnHit": true }
+    ]
+  },
+  "Platform": {
+    "components": [
+      { "type": "Body", "h": 32, "solid": true },
+      { "type": "Sprite", "texture": "platform", "tile": true }
+    ]
+  },
+  "BreakablePlatform": {
+    "components": [
+      { "type": "Body", "h": 32, "solid": true },
+      { "type": "Sprite", "texture": "platform_breakable", "tile": true },
+      { "type": "Breakable", "breakTime": 0.9, "respawnTime": 3 }
+    ]
+  },
+  "Battery": {
+    "components": [
+      { "type": "Body", "w": 20, "h": 32 },
+      { "type": "Sprite", "texture": "battery" },
+      { "type": "Pickup", "value": 1 }
+    ]
+  },
+  "PowerCore": {
+    "components": [
+      { "type": "Body", "w": 34, "h": 34 },
+      { "type": "Sprite", "texture": "core" },
+      { "type": "Pickup", "value": 1 }
+    ]
+  },
+  "Checkpoint": {
+    "components": [
+      { "type": "Body", "w": 20, "h": 48 },
+      { "type": "Sprite", "texture": "checkpoint" },
+      { "type": "Checkpoint", "activeTexture": "checkpoint_on" }
+    ]
+  },
+  "ExitDoor": {
+    "components": [
+      { "type": "Body", "w": 48, "h": 64 },
+      { "type": "Sprite", "texture": "door" },
+      { "type": "Goal", "unlockedTexture": "door_open" }
+    ]
+  },
+  "Reactor": {
+    "components": [
+      { "type": "Body", "w": 64, "h": 80 },
+      { "type": "Sprite", "texture": "reactor" },
+      { "type": "Goal", "unlockedTexture": "reactor_on" }
+    ]
+  }
+}

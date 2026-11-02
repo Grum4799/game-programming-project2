@@ -1,0 +1,25 @@
+{
+  "name": "Level 1 - The Factory",
+  "next": "assets/level2.json",
+  "required": 3,
+  "background": [24, 28, 40],
+  "objects": [
+    { "prefab": "Platform",          "set": { "Body": { "x": 0,   "y": 508, "w": 416 } } },
+    { "prefab": "BreakablePlatform", "set": { "Body": { "x": 416, "y": 508, "w": 128 } } },
+    { "prefab": "Platform",          "set": { "Body": { "x": 544, "y": 508, "w": 416 } } },
+
+    { "prefab": "Platform",          "set": { "Body": { "x": 150, "y": 400, "w": 128 } } },
+    { "prefab": "BreakablePlatform", "set": { "Body": { "x": 330, "y": 300, "w": 96 } } },
+    { "prefab": "Platform",          "set": { "Body": { "x": 512, "y": 210, "w": 128 } } },
+
+    { "prefab": "Battery", "set": { "Body": { "x": 204, "y": 356 } } },
+    { "prefab": "Battery", "set": { "Body": { "x": 368, "y": 256 } } },
+    { "prefab": "Battery", "set": { "Body": { "x": 566, "y": 166 } } },
+
+    { "prefab": "Drone", "set": { "Body": { "x": 640, "y": 440 },
+                                  "PatrolChase": { "left": 560, "right": 840 } } },
+
+    { "prefab": "ExitDoor", "set": { "Body": { "x": 896, "y": 444 } } },
+    { "prefab": "Player",   "set": { "Body": { "x": 40,  "y": 460 } } }
+  ]
+}
