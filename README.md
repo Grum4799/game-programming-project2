@@ -6,6 +6,7 @@ This game is a simple platformer where you collect batteries avoid enemies and t
 
 ![Level 1](https://github.com/Grum4799/game-programming-project2/blob/main/docs/1stSS.png?raw=true)
 ![Level 2](https://github.com/Grum4799/game-programming-project2/blob/main/docs/2ndSS.png?raw=true)
+![Level 3](https://github.com/Grum4799/game-programming-project2/blob/main/docs/3rdSS.png?raw=true)
 
 ## Controls
 - **A / D** or **Left / Right** - move
@@ -14,6 +15,9 @@ This game is a simple platformer where you collect batteries avoid enemies and t
 
 ## How the engine works
 Every object in the game is a `GameObject`, and its behavior comes from the components attached to it. Objects are built from JSON. `assets/prefabs.json` lists the components for each kind of object, and the level files place those objects and change their values. A factory (`ComponentFactory`) uses a map of component names to functions to create each component and add it to the object.
+
+## Changes
+Textures now load at startup from a JSON file (assets.json) into a map, so any texture can be looked up by name. A new View class follows the player and stops at the level edges, and sprites are drawn relative to it, shown off in a new level 3 that’s three screens wide (level 2 now ends at an exit door that leads into it). The game loop also aims for a target frame rate you can change (60 FPS by default), waiting only for the time left in each frame, and all movement and physics use deltaTime so they behave the same at any frame rate.
 
 ## Components
 | Component | What it does |
