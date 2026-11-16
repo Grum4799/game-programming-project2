@@ -10,6 +10,7 @@
 int Engine::width = 0, Engine::height = 0;
 float Engine::dt = 0;
 SDL_Renderer* Engine::renderer = nullptr;
+View Engine::view;
 SDL_Window* Engine::window = nullptr;
 bool Engine::running = false;
 std::vector<std::unique_ptr<GameObject>> Engine::objects;
@@ -24,6 +25,7 @@ static const char* SAVE_FILE = "save.json";
 
 bool Engine::init(const char* t, int w, int h) {
     width = w; height = h;
+    view = View(w / 2.0f, h / 2.0f, float(w), float(h));
     if (SDL_Init(SDL_INIT_VIDEO) < 0) { SDL_Log("SDL_Init: %s", SDL_GetError()); return false; }
     window = SDL_CreateWindow(t, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, 0);
     renderer = window ? SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED) : nullptr;

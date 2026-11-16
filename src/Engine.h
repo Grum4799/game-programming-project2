@@ -5,6 +5,7 @@
 #include <vector>
 #include <nlohmann/json.hpp>
 #include "GameObject.h"
+#include "View.h"
 
 using json = nlohmann::json;
 
@@ -13,6 +14,7 @@ public:
     static int width, height;
     static float dt;
     static SDL_Renderer* renderer;
+    static View view;
 
     static std::vector<std::unique_ptr<GameObject>> objects;
 

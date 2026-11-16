@@ -1,0 +1,17 @@
+{
+  "textures": {
+    "battery": "assets/sprites/battery.png",
+    "checkpoint": "assets/sprites/checkpoint.png",
+    "checkpoint_on": "assets/sprites/checkpoint_on.png",
+    "core": "assets/sprites/core.png",
+    "door": "assets/sprites/door.png",
+    "door_open": "assets/sprites/door_open.png",
+    "drone": "assets/sprites/drone.png",
+    "energy_ball": "assets/sprites/energy_ball.png",
+    "platform": "assets/sprites/platform.png",
+    "platform_breakable": "assets/sprites/platform_breakable.png",
+    "reactor": "assets/sprites/reactor.png",
+    "reactor_on": "assets/sprites/reactor_on.png",
+    "robot": "assets/sprites/robot.png"
+  }
+}

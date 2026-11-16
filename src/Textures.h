@@ -5,6 +5,7 @@
 
 class Textures {
 public:
+    static bool load(const std::string& manifestPath);
     static SDL_Texture* get(const std::string& key);
     static void clear();
 
