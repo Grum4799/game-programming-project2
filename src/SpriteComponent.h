@@ -1,4 +1,5 @@
 #pragma once
+#include <cmath>
 #include <string>
 #include "BodyComponent.h"
 #include "Textures.h"
@@ -24,7 +25,8 @@ public:
         if (body->vx > 1)  facingLeft = false;
 
         SDL_SetTextureAlphaMod(texture, alpha);
-        int x = int(body->x) + offsetX, y = int(body->y), w = int(body->w), h = int(body->h);
+        SDL_FPoint screen = Engine::view.toScreen(body->x + offsetX, body->y);
+        int x = int(std::lround(screen.x)), y = int(std::lround(screen.y)), w = int(body->w), h = int(body->h);
         if (tile) {
             for (int tx = 0; tx < w; tx += h) {
                 SDL_Rect src{0, 0, 0, 0};

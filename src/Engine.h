@@ -15,6 +15,7 @@ public:
     static float dt;
     static SDL_Renderer* renderer;
     static View view;
+    static float levelWidth;
 
     static std::vector<std::unique_ptr<GameObject>> objects;
 
@@ -40,6 +41,7 @@ public:
 private:
     static void loadLevel(const std::string& path);
     static void update();
+    static void updateView();
     static void render();
 
     static SDL_Window* window;

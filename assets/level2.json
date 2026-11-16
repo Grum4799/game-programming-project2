@@ -1,6 +1,6 @@
 {
   "name": "Level 2 - The Reactor",
-  "next": "",
+  "next": "assets/level3.json",
   "required": 1,
   "background": [36, 20, 28],
   "objects": [
@@ -22,7 +22,7 @@
     { "prefab": "Drone", "set": { "Body": { "x": 760, "y": 440 },
                                   "PatrolChase": { "left": 680, "right": 820 } } },
 
-    { "prefab": "Reactor", "set": { "Body": { "x": 880, "y": 428 } } },
+    { "prefab": "ExitDoor", "set": { "Body": { "x": 896, "y": 444 } } },
     { "prefab": "Player",  "set": { "Body": { "x": 40,  "y": 460 } } }
   ]
 }

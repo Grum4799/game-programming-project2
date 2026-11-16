@@ -3,6 +3,7 @@
 #include <cstdio>
 #include <fstream>
 #include <iostream>
+#include "BodyComponent.h"
 #include "ComponentFactory.h"
 #include "Input.h"
 #include "Textures.h"
@@ -11,6 +12,7 @@ int Engine::width = 0, Engine::height = 0;
 float Engine::dt = 0;
 SDL_Renderer* Engine::renderer = nullptr;
 View Engine::view;
+float Engine::levelWidth = 0;
 SDL_Window* Engine::window = nullptr;
 bool Engine::running = false;
 std::vector<std::unique_ptr<GameObject>> Engine::objects;
@@ -73,10 +75,21 @@ void Engine::update() {
         loadLevel(path);
     }
 
+    updateView();
+
     std::string t = won ? "Power Runner | POWER RESTORED - you win!"
                         : "Power Runner | " + levelName + " | Lives: " + std::to_string(lives) +
                           " | Power: " + std::to_string(collected) + "/" + std::to_string(required);
     if (t != title) { title = t; SDL_SetWindowTitle(window, t.c_str()); }
+}
+
+void Engine::updateView() {
+    GameObject* player = find("player");
+    BodyComponent* body = player ? player->get<BodyComponent>() : nullptr;
+    float halfW = width / 2.0f;
+    float x = body ? body->centerX() : halfW;
+    x = std::clamp(x, halfW, std::max(halfW, levelWidth - halfW));
+    view.setCenter(x, height / 2.0f);
 }
 
 void Engine::render() {
@@ -130,6 +143,7 @@ void Engine::loadLevel(const std::string& path) {
     levelName = level.value("name", path);
     nextLevel = level.value("next", "");
     required = level.value("required", 0);
+    levelWidth = level.value("width", float(width));
     if (level.contains("background")) {
         auto bg = level["background"];
         background = {Uint8(bg[0]), Uint8(bg[1]), Uint8(bg[2]), 255};

@@ -1,0 +1,45 @@
+{
+  "name": "Level 3 - The Grid",
+  "next": "",
+  "required": 4,
+  "width": 2880,
+  "background": [16, 30, 32],
+  "objects": [
+    { "prefab": "Platform",          "set": { "Body": { "x": 0,    "y": 508, "w": 480 } } },
+    { "prefab": "Platform",          "set": { "Body": { "x": 580,  "y": 508, "w": 420 } } },
+    { "prefab": "BreakablePlatform", "set": { "Body": { "x": 1000, "y": 508, "w": 128 } } },
+    { "prefab": "Platform",          "set": { "Body": { "x": 1128, "y": 508, "w": 272 } } },
+    { "prefab": "Platform",          "set": { "Body": { "x": 1500, "y": 508, "w": 400 } } },
+    { "prefab": "Platform",          "set": { "Body": { "x": 2000, "y": 508, "w": 880 } } },
+
+    { "prefab": "Platform",          "set": { "Body": { "x": 200,  "y": 400, "w": 128 } } },
+    { "prefab": "BreakablePlatform", "set": { "Body": { "x": 660,  "y": 410, "w": 96 } } },
+    { "prefab": "Platform",          "set": { "Body": { "x": 800,  "y": 320, "w": 128 } } },
+    { "prefab": "Platform",          "set": { "Body": { "x": 1180, "y": 400, "w": 128 } } },
+    { "prefab": "Platform",          "set": { "Body": { "x": 1340, "y": 300, "w": 128 } } },
+    { "prefab": "BreakablePlatform", "set": { "Body": { "x": 1600, "y": 400, "w": 96 } } },
+    { "prefab": "Platform",          "set": { "Body": { "x": 1720, "y": 300, "w": 128 } } },
+    { "prefab": "Platform",          "set": { "Body": { "x": 2150, "y": 400, "w": 128 } } },
+    { "prefab": "BreakablePlatform", "set": { "Body": { "x": 2320, "y": 310, "w": 96 }, "Breakable": { "breakTime": 0.6 } } },
+    { "prefab": "Platform",          "set": { "Body": { "x": 2480, "y": 220, "w": 160 } } },
+
+    { "prefab": "Battery",   "set": { "Body": { "x": 254,  "y": 356 } } },
+    { "prefab": "Battery",   "set": { "Body": { "x": 854,  "y": 276 } } },
+    { "prefab": "Battery",   "set": { "Body": { "x": 1774, "y": 256 } } },
+    { "prefab": "PowerCore", "set": { "Body": { "x": 2543, "y": 176 } } },
+
+    { "prefab": "Checkpoint", "set": { "Body": { "x": 1540, "y": 460 } } },
+
+    { "prefab": "Drone", "set": { "Body": { "x": 700,  "y": 440 },
+                                  "PatrolChase": { "left": 620,  "right": 940 } } },
+    { "prefab": "Drone", "set": { "Body": { "x": 1760, "y": 440 },
+                                  "PatrolChase": { "left": 1700, "right": 1850 } } },
+    { "prefab": "Drone", "set": { "Body": { "x": 2300, "y": 440 },
+                                  "PatrolChase": { "left": 2050, "right": 2700 } } },
+    { "prefab": "Drone", "set": { "Body": { "x": 2500, "y": 110 },
+                                  "PatrolChase": { "left": 2400, "right": 2700, "range": 200 } } },
+
+    { "prefab": "Reactor", "set": { "Body": { "x": 2780, "y": 428 } } },
+    { "prefab": "Player",  "set": { "Body": { "x": 40,   "y": 460 } } }
+  ]
+}

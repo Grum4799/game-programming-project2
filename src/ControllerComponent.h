@@ -13,6 +13,7 @@ public:
         if (Input::isKeyDown(SDLK_a) || Input::isKeyDown(SDLK_LEFT))  dir -= 1;
         if (Input::isKeyDown(SDLK_d) || Input::isKeyDown(SDLK_RIGHT)) dir += 1;
         body->vx = dir * speed;
+        body->x = std::clamp(body->x, 0.0f, Engine::levelWidth - body->w);
 
         bool jump = Input::isKeyDown(SDLK_SPACE) || Input::isKeyDown(SDLK_w) || Input::isKeyDown(SDLK_UP);
         if (jump && body->ground) body->vy = -jumpSpeed;

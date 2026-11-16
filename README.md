@@ -2,7 +2,7 @@
 
 ## Power Runner
 
-This game is a simple platformer where you collect batteries avoid enemies and their projectiles and try to make it through the door and to the reactor at the end after collecting the core, there is one checkpoint in the second level and there are breakable platforms so don't stand in one place too long
+This game is a simple platformer where you collect batteries avoid enemies and their projectiles and try to make it through the door and to the reactor at the end after collecting the core, there is one checkpoint in the second level and there are breakable platforms so don't stand in one place too long. UPDATE - 3 levels now so the third level can show off camera tricks.
 
 ![Level 1](https://github.com/Grum4799/game-programming-project2/blob/main/docs/1stSS.png?raw=true)
 ![Level 2](https://github.com/Grum4799/game-programming-project2/blob/main/docs/2ndSS.png?raw=true)
