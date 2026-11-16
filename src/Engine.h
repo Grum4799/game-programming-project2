@@ -13,6 +13,7 @@ class Engine {
 public:
     static int width, height;
     static float dt;
+    static int targetFps;
     static SDL_Renderer* renderer;
     static View view;
     static float levelWidth;

@@ -10,6 +10,7 @@
 
 int Engine::width = 0, Engine::height = 0;
 float Engine::dt = 0;
+int Engine::targetFps = 60;
 SDL_Renderer* Engine::renderer = nullptr;
 View Engine::view;
 float Engine::levelWidth = 0;
@@ -37,20 +38,27 @@ bool Engine::init(const char* t, int w, int h) {
 }
 
 void Engine::run() {
-    Uint64 last = SDL_GetTicks64();
+    const double freq = double(SDL_GetPerformanceFrequency());
+    Uint64 last = SDL_GetPerformanceCounter();
     while (running) {
+        Uint64 frameStart = SDL_GetPerformanceCounter();
+        dt = std::min(float((frameStart - last) / freq), 1.0f / 30.0f);
+        last = frameStart;
+
         SDL_Event e;
         while (SDL_PollEvent(&e)) {
             if (e.type == SDL_QUIT || (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE)) running = false;
             Input::processEvent(e);
         }
-        Uint64 now = SDL_GetTicks64();
-        dt = std::min((now - last) / 1000.0f, 1.0f / 30.0f);
-        last = now;
 
         update();
         render();
-        SDL_Delay(16);
+
+        if (targetFps > 0) {
+            double frameTime = 1.0 / targetFps;
+            double elapsed = (SDL_GetPerformanceCounter() - frameStart) / freq;
+            if (elapsed < frameTime) SDL_Delay(Uint32((frameTime - elapsed) * 1000.0));
+        }
     }
     objects.clear();
     pending.clear();

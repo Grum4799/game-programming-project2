@@ -6,6 +6,7 @@
 std::set<SDL_Keycode> Input::keysDown;
 
 int main(int argc, char* argv[]) {
+    Engine::targetFps = 60;
     if (!Engine::init("Power Runner", 960, 540)) return 1;
     if (!Textures::load("assets/assets.json")) return 1;
     Engine::loadPrefabs("assets/prefabs.json");
